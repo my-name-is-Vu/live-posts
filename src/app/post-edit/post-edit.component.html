@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3 *ngIf="editMode === false">Post Add</h3>
+    <h3 *ngIf="editMode === true">Post Edit</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Image Path</label>
+        <input type="text" class="form-control" formControlName="imagePath" />
+
+        <!-- display the image below input -->
+        <img class="img-responsive" src="{{ form.value.imagePath }}" />
+      </div>
+
+      <!-- when the user enters the field then valid -->
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+        Save
+      </button>
+      |
+      <button type="reset" class="btn btn-primary">Clear</button>
+    </form>
+  </div>
+</div>

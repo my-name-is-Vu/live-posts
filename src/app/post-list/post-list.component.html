@@ -1,0 +1,8 @@
+<h1>Latest posts...</h1>
+
+<!-- display index of array -->
+<app-post
+  *ngFor="let post of listOfPost; let i = index"
+  [post]="post"
+  [index]="i"
+></app-post>
